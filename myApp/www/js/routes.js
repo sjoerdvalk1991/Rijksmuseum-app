@@ -2,6 +2,7 @@ var app = angular.module('starter', [
   'ionic',
   'slick',
   'app.controller',
+  'home.controller',
   'results.controller',
   'result.controller',
   'saved.controller',
@@ -18,11 +19,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'AppCtrl'
     })
 
-    .state('app.search', {
-      url: "/search",
+    .state('app.home', {
+      url: "/home",
       views: {
         'menuContent' :{
-          templateUrl: "templates/search.html"
+          templateUrl: "templates/home.html"
         }
       }
     })
@@ -74,6 +75,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/results');
+  $urlRouterProvider.otherwise('/app/home');
 });
 

@@ -5,13 +5,14 @@
   <ion-content class="has-header">
    <h1>Saved art</h1>
   <div ng-controller="SavedCtrl as savedCtrl">
-    <slick autoplay="false" arrows="false" autoplaySpeed="500" fade="false"> 
-      <div class="text-center" ng-repeat="result in savedCtrl.results">
+   <ion-slide-box does-continue="true" show-pager="false">
+      <ion-slide class="text-center" ng-repeat="result in savedCtrl.results">
         <img class="img art-image" ng-if="result.webImage" ng-src="{{result.webImage.url}}" alt="{{result.title}} Cover Image">
         <h2 class="content oldscool">{{result.title}}</h2>
-        <a href="#/app/savedresult/{{result.objectNumber}}" class="button oldscool button-large">Schilderij bekijken</a>
-      </div> 
-    </slick>
+        <a href="#/app/result/{{result.objectNumber}}" class="button oldscool button-large">Schilderij bekijken</a>
+      </ion-slide> 
+    </ion-slide-box>
+  </div>
   </div>
   </ion-content>
 </ion-view>

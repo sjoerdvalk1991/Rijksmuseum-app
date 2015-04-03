@@ -1,10 +1,11 @@
-var app = angular.module('results.controller', ['collection.service', 'slick']);
+var app = angular.module('results.controller', ['collection.service']);
 
-var resultsController = function(collectAPI, $q, $timeout){
+var resultsController = function(collectAPI, $q, $timeout, $ionicSlideBoxDelegate){
 
   var _this = this;
 
   this.results = {};
+      $ionicSlideBoxDelegate.update();
 
   _this.timeNow = Date.now();
 
@@ -33,8 +34,9 @@ var resultsController = function(collectAPI, $q, $timeout){
 
       function fade(){
         $timeout(function(){
+           $ionicSlideBoxDelegate.update();
           $('.come-in').fadeIn( "slow", function (){
-            console.log('testing');
+           
           });
 
         },3000);  
@@ -68,5 +70,5 @@ var resultsController = function(collectAPI, $q, $timeout){
 };
 
 
-resultsController.$inject = ['collectService', '$q', '$timeout'];
+resultsController.$inject = ['collectService', '$q', '$timeout', '$ionicSlideBoxDelegate'];
 app.controller('ResultsCtrl', resultsController);
